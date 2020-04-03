@@ -1,0 +1,11 @@
+{
+  "name": "ffmpeg-ascii",
+  "version": "0.0.1",
+  "description": "Takes an input video, converts it into ASCII frames, and prints them to screen",
+  "main": "./main.js",
+  "author": "Peter Zich",
+  "dependencies": {
+    "asciify-pixel-matrix": "^1.0.13",
+    "commander": "^5.0.0"
+  }
+}

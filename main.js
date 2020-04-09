@@ -127,6 +127,20 @@ function decodeBGRAStream(video, frameSize) {
   return decode;
 }
 
+function asciifyFrame(frame, width) {
+  // TODO: Add options for other asciifiers
+  const pixelMatrix = pixelMatrixFromBGRA(frame, width);
+  const ascii = asciifyPixelMatrix(pixelMatrix);
+  return ascii;
+}
+
+function writeFrameToScreen(frame) {
+  process.stdout.cork();
+  process.stdout.write('\033[1;1H');
+  process.stdout.write(frame);
+  process.stdout.uncork();
+}
+
 program
   .version('0.0.1')
   .command('play <input-video>')
@@ -145,12 +159,8 @@ program
     const asciiOptions = {};
 
     for await (const frame of frameDechunker(decode.stdout)) {
-      const pixelMatrix = pixelMatrixFromBGRA(frame, frameSize.w);
-      const ascii = asciifyPixelMatrix(pixelMatrix);
-      process.stdout.cork();
-      process.stdout.write('\033[1;1H');
-      process.stdout.write(ascii);
-      process.stdout.uncork();
+      const asciiFrame = asciifyFrame(frame, frameSize.w);
+      writeFrameToScreen(asciiFrame);
     }
   })
 

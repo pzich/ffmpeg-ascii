@@ -1,9 +1,9 @@
 # ffmpeg-ascii
 `ffmpeg-ascii` takes an input video, converts it into ASCII frames, and prints them to screen.
 
-![](https://i.imgur.com/V7nvQe7.gif)
+![](https://user-images.githubusercontent.com/706138/107308123-e8212380-6a3c-11eb-9922-6c22f81ed1b5.gif)
 
-The GIF won't embed properly, so go see it at https://i.imgur.com/V7nvQe7.gif for now.
+*Example output https://i.imgur.com/V7nvQe7.gif*
 
 ### Installation
 
